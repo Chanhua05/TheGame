@@ -1,0 +1,21 @@
+{
+  "name": "我的专属游戏库",
+  "short_name": "游戏库",
+  "description": "收集我最爱的自制游戏与工具",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#e0e7ff",
+  "theme_color": "#e0e7ff",
+  "icons": [
+    {
+      "src": "https://api.dicebear.com/7.x/bottts/png?seed=game",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://api.dicebear.com/7.x/bottts/png?seed=game",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
