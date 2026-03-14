@@ -1,0 +1,14 @@
+const CACHE_NAME = 'game-lib-v1';
+
+self.addEventListener('install', (event) => {
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(clients.claim());
+});
+
+// 核心逻辑：不强行缓存，保证你每次在 GitHub 修改代码后，手机端都能立刻生效
+self.addEventListener('fetch', (event) => {
+  event.respondWith(fetch(event.request));
+});
