@@ -4,11 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的专属游戏库</title>
-  
-  <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#e0e7ff">
-  <link rel="apple-touch-icon" href="https://api.dicebear.com/7.x/bottts/png?seed=game">
-  
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* 隐藏一下丑丑的滚动条，让分类栏更清爽 */
@@ -85,6 +80,7 @@
   </div>
 
   <script>
+    // 🌟 你的小游戏合集，羊了个羊在第8个哦！
     const myGames = [
       { id: 1, title: '爽爽割草', category: '动作', desc: '超解压的满屏割草游戏，疯狂收割敌人，爽感直接拉满！', icon: '⚔️', url: 'https://chanhua05.github.io/game/gecao.html' },
       { id: 2, title: '雷霆战机', category: '射击', desc: '驾驶你的王牌战机，穿梭在枪林弹雨中，保卫宇宙和平！', icon: '✈️', url: 'https://chanhua05.github.io/game/ltzj.html' },
@@ -92,7 +88,9 @@
       { id: 4, title: '三国杀', category: '策略', desc: '经典策略卡牌对战！主公、忠臣、反贼、内奸，尔虞我诈，谁能笑到最后？', icon: '🐉', url: 'https://chanhua05.github.io/game/newrealchinakill.html' },
       { id: 5, title: '魔方', category: '益智', desc: '3D经典魔方！转动指尖，挑战你的空间思维和手速，看看你能多快还原！', icon: '🧩', url: 'https://chanhua05.github.io/game/mofang' },
       { id: 6, title: '狼人杀', category: '推理', desc: '天黑请闭眼... 伪装、逻辑与口才的较量，找出隐藏的狼人或者消灭所有好人！', icon: '🐺', url: 'https://chanhua05.github.io/ipppp/wolf' },
-      { id: 7, title: '水果忍者', category: '动作', desc: '划动指尖，切碎满天飞舞的水果！疯狂连击，果汁四溅，千万别切到炸弹哦！', icon: '🍉', url: 'https://chanhua05.github.io/game/sgrz.html' }
+      { id: 7, title: '水果忍者', category: '动作', desc: '划动指尖，切碎满天飞舞的水果！疯狂连击，果汁四溅，千万别切到炸弹哦！', icon: '🍉', url: 'https://chanhua05.github.io/game/sgrz.html' },
+      { id: 8, title: '羊了个羊', category: '休闲', desc: '火爆全网的消除小游戏！凑齐三个相同的方块即可消除，快来挑战那不到1%的通关率吧！', icon: '🐑', url: 'https://chanhua05.github.io/game/xxl' },
+      { id: 9, title: '地球仪', category: '益智', desc: '3D互动地球仪！转动指尖，探索这颗美丽的蔚蓝星球，看看世界有多大！', icon: '🌍', url: 'https://chanhua05.github.io/game/diqiu' }
     ];
 
     const categories = ['全部', '动作', '射击', '棋牌', '策略', '推理', '休闲', '益智'];
@@ -108,7 +106,7 @@
     const modalTitle = document.getElementById('modal-title');
     const modalIcon = document.getElementById('modal-icon');
 
-    // 1️⃣ 渲染分类按钮 (全部改成毛玻璃)
+    // 1️⃣ 渲染分类按钮
     function renderCategories() {
       categoriesContainer.innerHTML = '';
       categories.forEach(cat => {
@@ -128,7 +126,7 @@
       });
     }
 
-    // 2️⃣ 渲染游戏卡片 (通透的高级卡片)
+    // 2️⃣ 渲染游戏卡片
     function renderGames() {
       gamesGrid.innerHTML = '';
       
@@ -205,15 +203,6 @@
       searchQuery = e.target.value;
       renderGames();
     });
-
-    // 🌟 6️⃣ 注册 PWA Service Worker (重点在这里！让它能安装的核心)
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('App化成功！', reg))
-          .catch(err => console.log('App化失败：', err));
-      });
-    }
 
     renderCategories();
     renderGames();
