@@ -191,4 +191,38 @@
       gameModal.classList.remove('hidden');
       gameModal.classList.add('flex');
       
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'; 
+
+      if (game.url) {
+        gameIframe.src = game.url;
+        gameIframe.classList.remove('hidden');
+        emptyUrlMsg.classList.add('hidden');
+      } else {
+        gameIframe.src = '';
+        gameIframe.classList.add('hidden');
+        emptyUrlMsg.classList.remove('hidden');
+      }
+    }
+
+    // 4️⃣ 关闭游戏逻辑
+    function closeGame() {
+      gameModal.classList.add('hidden');
+      gameModal.classList.remove('flex');
+      gameIframe.src = ''; 
+      document.body.style.overflow = 'auto'; 
+    }
+
+    // 5️⃣ 监听搜索框
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderGames();
+    });
+
+    renderCategories();
+    renderGames();
+
+  </script>
+</body>
+</html>
+
+
